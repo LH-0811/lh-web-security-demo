@@ -1,5 +1,6 @@
 package com.example.demo_for_security.controller.res;
 
+import com.lhit.starter.security.annotation.HasPermsCode;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RoleController {
 
+    @HasPermsCode({"system_role_add_interface"})
     @GetMapping("/role/add")
     public String roleAdd() {
         return "role add !!";
