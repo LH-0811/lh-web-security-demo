@@ -11,11 +11,10 @@ import java.util.stream.Collectors;
 
 /**
  * 资源保护适配器
- *
+ * <p>
  * 通过该适配器
  * 告诉系统 哪些url指向的资源是收保护的 需要有相关权限的用户才可以访问
  * 并资源对应的是哪个权限码
- *
  */
 @Component
 public class MyResProtectAdapter implements LhitSecurityResourceProtectAdapter {

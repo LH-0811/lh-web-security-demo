@@ -23,7 +23,7 @@ public interface SysUserDao extends Mapper<SysUser> {
             "WHERE\n" +
             "\tu.id =#{userId} \n" +
             "<if test='resType != null'> \n" +
-                "AND res.type = #{resType}\n" +
+            "AND res.type = #{resType}\n" +
             "</if>\n" +
             "</script>\n")
     List<SysRes> getUserResListByUserIdAndResType(@Param("userId") Long userId, @Param("resType") Integer resType);

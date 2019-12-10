@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 
 /**
  * 用户认证适配器
- *
+ * <p>
  * 通过该适配器 指定用户的登录认证过程 并将 用户的权限获取到
  */
 @Component
@@ -65,7 +65,7 @@ public class MyUserVerificationAdapter implements LhitSecurityUserAuthentication
 
         List<LhitSecurityPermission> perms = sysResList.stream().map(ele -> LhitSecurityPermission.builder().permsCode(ele.getPerms()).url(ele.getUrl()).build()).collect(Collectors.toList());
 
-        return  new LhitSecurityUserPerms(roles,perms,String.valueOf(sysUser.getId()));
+        return new LhitSecurityUserPerms(roles, perms, String.valueOf(sysUser.getId()));
 
     }
 }

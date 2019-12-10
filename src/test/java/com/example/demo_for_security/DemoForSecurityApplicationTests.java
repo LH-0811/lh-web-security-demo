@@ -10,7 +10,6 @@ import org.springframework.util.AntPathMatcher;
 class DemoForSecurityApplicationTests {
 
 
-
     @Test
     void contextLoads() {
     }
