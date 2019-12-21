@@ -8,15 +8,12 @@ import com.example.demo_for_security.pojo.SysRes;
 import com.example.demo_for_security.pojo.SysRole;
 import com.example.demo_for_security.pojo.SysUser;
 import com.example.demo_for_security.pojo.SysUserRole;
-import com.lhit.starter.security.adapter.LhitSecurityUserAuthenticationAdapter;
+import com.lhit.starter.security.adapter.LhitSecurityUserVerificationAdapter;
+import com.lhit.starter.security.annotation.LhitUserVerification;
 import com.lhit.starter.security.exception.UserVerificationException;
-import com.lhit.starter.security.pojo.LhitSecurityPermission;
-import com.lhit.starter.security.pojo.LhitSecurityRole;
-import com.lhit.starter.security.pojo.LhitSecurityUserPerms;
-import com.lhit.starter.security.pojo.UsernamePasswordUserVerification;
+import com.lhit.starter.security.pojo.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,8 +23,8 @@ import java.util.stream.Collectors;
  * <p>
  * 通过该适配器 指定用户的登录认证过程 并将 用户的权限获取到
  */
-@Component
-public class MyUserVerificationAdapter implements LhitSecurityUserAuthenticationAdapter<UsernamePasswordUserVerification> {
+@LhitUserVerification
+public class MyUserVerificationAdapter implements LhitSecurityUserVerificationAdapter<UsernamePasswordUserVerification> {
 
     @Autowired
     private SysUserDao sysUserDao;
@@ -64,8 +61,12 @@ public class MyUserVerificationAdapter implements LhitSecurityUserAuthentication
         List<LhitSecurityRole> roles = sysRoles.stream().map(ele -> new LhitSecurityRole(ele.getKey())).collect(Collectors.toList());
 
         List<LhitSecurityPermission> perms = sysResList.stream().map(ele -> LhitSecurityPermission.builder().permsCode(ele.getPerms()).url(ele.getUrl()).build()).collect(Collectors.toList());
-
-        return new LhitSecurityUserPerms(roles, perms, String.valueOf(sysUser.getId()));
+        LhitSecurityUserPerms userPerms = new LhitSecurityUserPerms();
+        userPerms.setRoles(roles);
+        userPerms.setPermissions(perms);
+        userPerms.setUser(sysUser);
+        userPerms.setUserId(String.valueOf(sysUser.getId()));
+        return userPerms;
 
     }
 }
