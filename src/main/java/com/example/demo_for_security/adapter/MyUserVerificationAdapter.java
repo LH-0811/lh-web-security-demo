@@ -11,7 +11,9 @@ import com.example.demo_for_security.pojo.SysUserRole;
 import com.lhit.starter.security.adapter.LhitSecurityUserVerificationAdapter;
 import com.lhit.starter.security.annotation.LhitUserVerification;
 import com.lhit.starter.security.exception.UserVerificationException;
-import com.lhit.starter.security.pojo.*;
+import com.lhit.starter.security.pojo.entity.LhitSecurityPermission;
+import com.lhit.starter.security.pojo.entity.LhitSecurityRole;
+import com.lhit.starter.security.pojo.entity.LhitSecurityUserPerms;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 

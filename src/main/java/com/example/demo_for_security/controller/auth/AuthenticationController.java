@@ -2,13 +2,12 @@ package com.example.demo_for_security.controller.auth;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo_for_security.adapter.UsernamePasswordUserVerification;
-import com.example.demo_for_security.pojo.SysUser;
 import com.lhit.starter.security.adapter.LhitSecurityTokenManagerAdapter;
 import com.lhit.starter.security.adapter.LhitSecurityUserAuthenticationLoginAdapter;
-import com.lhit.starter.security.pojo.DefaultUsernamePasswordUserVerification;
-import com.lhit.starter.security.pojo.LhitSecurityRole;
-import com.lhit.starter.security.pojo.LhitSecurityUser;
-import com.lhit.starter.security.pojo.LhitSecurityUserPerms;
+import com.lhit.starter.security.pojo.entity.LhitSecurityRole;
+import com.lhit.starter.security.pojo.entity.LhitSecurityUserPerms;
+import com.lhit.starter.security.pojo.user.LhitSecurityUser;
+import com.lhit.starter.security.pojo.verification.DefaultUsernamePasswordUserVerification;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
