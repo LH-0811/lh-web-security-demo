@@ -1,6 +1,7 @@
 package com.example.demo_for_security.controller.auth;
 
 import com.alibaba.fastjson.JSONObject;
+import com.example.demo_for_security.adapter.PhoneUserVerification;
 import com.example.demo_for_security.adapter.UsernamePasswordUserVerification;
 import com.lhit.starter.security.adapter.LhitSecurityTokenManagerAdapter;
 import com.lhit.starter.security.adapter.LhitSecurityUserAuthenticationLoginAdapter;
@@ -41,6 +42,14 @@ public class AuthenticationController {
         String token = userAuthenticationLoginAdapter.userAuthenticationLogin(verification);
         return "customLogin登录成功,token:" + token;
     }
+
+    @GetMapping("/phone/login/{phone}/{code}")
+    public String phoneLogin(@PathVariable String phone, @PathVariable String code) throws Exception {
+        PhoneUserVerification phoneUserVerification = PhoneUserVerification.builder().phone(phone).code(code).build();
+        String token = userAuthenticationLoginAdapter.userAuthenticationLogin(phoneUserVerification);
+        return "phoneLogin登录成功,token:" + token;
+    }
+
 
 
     @GetMapping("/info")
