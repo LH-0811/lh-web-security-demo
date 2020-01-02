@@ -2,7 +2,7 @@ package com.example.demo_for_security.adapter;
 
 import com.example.demo_for_security.dao.SysResDao;
 import com.example.demo_for_security.pojo.SysRes;
-import com.lhit.starter.security.adapter.LhitSecurityResourceProtectAdapter;
+import com.lhit.starter.security.defense.adapter.LhitSecurityResourceProtectAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

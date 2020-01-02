@@ -1,6 +1,6 @@
 package com.example.demo_for_security.pojo;
 
-import com.lhit.starter.security.pojo.user.LhitSecurityUser;
+import com.lhit.starter.security.defense.pojo.user.LhitSecurityUser;
 import lombok.Getter;
 import lombok.Setter;
 import tk.mybatis.mapper.annotation.KeySql;

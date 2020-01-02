@@ -1,6 +1,6 @@
 package com.example.demo_for_security.controller.res;
 
-import com.lhit.starter.security.annotation.HasPermsCode;
+import com.lhit.starter.security.defense.annotation.HasPermsCode;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;

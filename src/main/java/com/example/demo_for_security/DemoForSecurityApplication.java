@@ -1,6 +1,6 @@
 package com.example.demo_for_security;
 
-import com.lhit.starter.security.properties.LhitSecurityProperties;
+import com.lhit.starter.security.defense.properties.LhitSecurityProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

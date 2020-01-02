@@ -1,6 +1,6 @@
 package com.example.demo_for_security.adapter;
 
-import com.lhit.starter.security.pojo.verification.LhitSecurityUserVerification;
+import com.lhit.starter.security.defense.pojo.verification.LhitSecurityUserVerification;
 import lombok.*;
 
 @Getter
