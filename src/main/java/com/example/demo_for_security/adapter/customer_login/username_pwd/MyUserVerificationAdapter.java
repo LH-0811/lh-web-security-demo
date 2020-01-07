@@ -1,4 +1,4 @@
-package com.example.demo_for_security.adapter;
+package com.example.demo_for_security.adapter.customer_login.username_pwd;
 
 import com.example.demo_for_security.dao.SysRoleDao;
 import com.example.demo_for_security.dao.SysUserDao;

@@ -1,13 +1,5 @@
-package com.example.demo_for_security.adapter;
+package com.example.demo_for_security.adapter.customer_login.phone_code;
 
-import com.example.demo_for_security.dao.SysRoleDao;
-import com.example.demo_for_security.dao.SysUserDao;
-import com.example.demo_for_security.dao.SysUserRoleDao;
-import com.example.demo_for_security.enum_.ResType;
-import com.example.demo_for_security.pojo.SysRes;
-import com.example.demo_for_security.pojo.SysRole;
-import com.example.demo_for_security.pojo.SysUser;
-import com.example.demo_for_security.pojo.SysUserRole;
 import com.google.common.collect.Lists;
 import com.lhit.starter.security.defense.adapter.LhitSecurityUserVerificationAdapter;
 import com.lhit.starter.security.defense.annotation.LhitUserVerification;
@@ -16,11 +8,6 @@ import com.lhit.starter.security.defense.pojo.entity.LhitSecurityPermission;
 import com.lhit.starter.security.defense.pojo.entity.LhitSecurityRole;
 import com.lhit.starter.security.defense.pojo.entity.LhitSecurityUserPerms;
 import com.lhit.starter.security.defense.pojo.user.DefaultLhitSecurityUser;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * 用户认证适配器

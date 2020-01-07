@@ -1,8 +1,9 @@
 package com.example.demo_for_security.controller.auth;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.demo_for_security.adapter.PhoneUserVerification;
-import com.example.demo_for_security.adapter.UsernamePasswordUserVerification;
+import com.example.demo_for_security.adapter.customer_login.oauth2.Oauth2Verification;
+import com.example.demo_for_security.adapter.customer_login.phone_code.PhoneUserVerification;
+import com.example.demo_for_security.adapter.customer_login.username_pwd.UsernamePasswordUserVerification;
 import com.lhit.starter.security.defense.adapter.LhitSecurityTokenManagerAdapter;
 import com.lhit.starter.security.defense.adapter.LhitSecurityUserAuthenticationLoginAdapter;
 import com.lhit.starter.security.defense.pojo.entity.LhitSecurityRole;
@@ -11,16 +12,13 @@ import com.lhit.starter.security.defense.pojo.user.LhitSecurityUser;
 import com.lhit.starter.security.defense.pojo.verification.DefaultUsernamePasswordUserVerification;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class AuthenticationController {
+public class DemoAuthenticationController {
 
     @Autowired
     private LhitSecurityUserAuthenticationLoginAdapter userAuthenticationLoginAdapter;
@@ -40,6 +38,12 @@ public class AuthenticationController {
     public String customLogin(@PathVariable String username, @PathVariable String password) throws Exception {
         UsernamePasswordUserVerification verification = new UsernamePasswordUserVerification(username, password);
         String token = userAuthenticationLoginAdapter.userAuthenticationLogin(verification);
+        return "customLogin登录成功,token:" + token;
+    }
+
+    @PostMapping("/${lhit.security.oauth2.server.authentication_login_process_path}")
+    public String oauth2Login(Oauth2Verification oauth2Verification) throws Exception {
+        String token = userAuthenticationLoginAdapter.userAuthenticationLogin(oauth2Verification);
         return "customLogin登录成功,token:" + token;
     }
 
