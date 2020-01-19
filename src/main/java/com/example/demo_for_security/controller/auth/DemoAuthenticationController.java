@@ -41,7 +41,7 @@ public class DemoAuthenticationController {
         return "customLogin登录成功,token:" + token;
     }
 
-    @PostMapping("/${lhit.security.oauth2.server.authentication_login_process_path}")
+    @PostMapping("/${lhit.security.oauth2.authentication_login_process_path}")
     public String oauth2Login(Oauth2Verification oauth2Verification) throws Exception {
         String token = userAuthenticationLoginAdapter.userAuthenticationLogin(oauth2Verification);
         return "customLogin登录成功,token:" + token;
