@@ -1,7 +1,6 @@
 package com.example.demo_for_security.controller.auth;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.demo_for_security.adapter.customer_login.oauth2.Oauth2Verification;
 import com.example.demo_for_security.adapter.customer_login.phone_code.PhoneUserVerification;
 import com.example.demo_for_security.adapter.customer_login.username_pwd.UsernamePasswordUserVerification;
 import com.lhit.starter.security.defense.adapter.LhitSecurityTokenManagerAdapter;
@@ -41,11 +40,6 @@ public class DemoAuthenticationController {
         return "customLogin登录成功,token:" + token;
     }
 
-    @PostMapping("/${lhit.security.oauth2.authentication_login_process_path}")
-    public String oauth2Login(Oauth2Verification oauth2Verification) throws Exception {
-        String token = userAuthenticationLoginAdapter.userAuthenticationLogin(oauth2Verification);
-        return "customLogin登录成功,token:" + token;
-    }
 
     @GetMapping("/phone/login/{phone}/{code}")
     public String phoneLogin(@PathVariable String phone, @PathVariable String code) throws Exception {
@@ -53,7 +47,6 @@ public class DemoAuthenticationController {
         String token = userAuthenticationLoginAdapter.userAuthenticationLogin(phoneUserVerification);
         return "phoneLogin登录成功,token:" + token;
     }
-
 
 
     @GetMapping("/info")
