@@ -1,5 +1,6 @@
 package com.example.demo_for_security.controller.auth;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo_for_security.adapter.customer_login.phone_code.PhoneUserVerification;
 import com.example.demo_for_security.adapter.customer_login.username_pwd.UsernamePasswordUserVerification;
@@ -50,12 +51,12 @@ public class DemoAuthenticationController {
 
 
     @GetMapping("/info")
-    public String userInfo(@RequestHeader(value = "LH_TOKEN", defaultValue = "") String token) throws Exception {
+    public String userInfo(@RequestHeader(value = "LHTOKEN", defaultValue = "") String token) throws Exception {
         if (StringUtils.isEmpty(token)) {
             return "用户token不能为空";
         }
         LhitSecurityUserPerms<LhitSecurityRole, LhitSecurityUser> permsByToken = lhitSecurityTokenManagerAdapter.getPermsByToken(token);
-        LhitSecurityUser userInfoByToken = lhitSecurityTokenManagerAdapter.getUserInfoByToken(token);
+        LhitSecurityUser userInfoByToken = JSON.parseObject(JSONObject.toJSONString(lhitSecurityTokenManagerAdapter.getUserInfoByToken(token)),LhitSecurityUser.class)  ;
         Map<String, Object> map = new HashMap<>();
         map.put("perms", permsByToken);
         map.put("userInfo", userInfoByToken);

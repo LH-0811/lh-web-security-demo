@@ -14,15 +14,8 @@ import tk.mybatis.spring.annotation.MapperScan;
 @MapperScan("com.example.demo_for_security.dao")
 public class DemoForSecurityApplication {
 
-
-
-
     public static void main(String[] args) {
         SpringApplication.run(DemoForSecurityApplication.class, args);
     }
-
-
-
-
 
 }

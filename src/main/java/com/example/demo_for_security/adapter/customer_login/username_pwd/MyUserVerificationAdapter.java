@@ -45,14 +45,14 @@ public class MyUserVerificationAdapter implements LhitSecurityUserVerificationAd
         try {
             sysUser = sysUserDao.selectOne(query);
         } catch (Exception e) {
-            throw UserVerificationException.builder().username(verification.getUsername()).msg("用户名不存在").error(e).build();
+            throw UserVerificationException.create(verification.getUsername(),"用户名不存在");
         }
 
         if (sysUser == null)
-            throw UserVerificationException.builder().username(verification.getUsername()).msg("用户名不存在").build();
+            throw UserVerificationException.create(verification.getUsername(),"用户名不存在");
 
         if (!sysUser.getPassword().equals(verification.getPassword()))
-            throw UserVerificationException.builder().username(verification.getUsername()).msg("密码错误").build();
+            throw UserVerificationException.create(verification.getUsername(),"密码错误");
 
         List<SysRes> sysResList = sysUserDao.getUserResListByUserIdAndResType(sysUser.getId(), ResType.INTERFACE.getCode());
         SysUserRole queryUserRole = new SysUserRole();
