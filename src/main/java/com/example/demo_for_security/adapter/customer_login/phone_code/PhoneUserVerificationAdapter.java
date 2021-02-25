@@ -20,8 +20,8 @@ public class PhoneUserVerificationAdapter implements LhitSecurityUserVerificatio
 
     @Override
     public LhitSecurityUserPerms verification(PhoneUserVerification verification) throws Exception {
-        if (!"17664059624".equals(verification.getPhone())) {
-            throw UserVerificationException.builder().username(verification.getPhone()).msg("手机号错误，默认手机号17664059624").build();
+        if (!"17600000001".equals(verification.getPhone())) {
+            throw UserVerificationException.builder().username(verification.getPhone()).msg("手机号错误，默认手机号17600000001").build();
         } else if (!"123456".equals(verification.getCode())) {
             throw UserVerificationException.builder().username(verification.getCode()).msg("验证码不正确：默认密码123456").build();
         } else {
